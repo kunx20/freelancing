@@ -1,7 +1,17 @@
-sales = [1200, 2500, 1800, 3000, 1500]
+import csv
 
-total_sales = sum(sales)
-average_sales = total_sales / len(sales)
+total_revenue = 0
 
-print("Total Sales:", total_sales)
-print("Average Sales:", average_sales)
+with open("sales.csv", "r", newline="") as file:
+    reader = csv.DictReader(file)
+
+    for row in reader:
+        quantity = int(row["Quantity"])
+        price = float(row["Price"])
+        revenue = quantity * price
+
+        total_revenue += revenue
+
+        print(row["Product"], "Revenue:", revenue)
+
+print("Total Revenue:", total_revenue)
