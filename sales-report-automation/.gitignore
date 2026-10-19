@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+
+# Streamlit and generated temporary files
+.streamlit/
+~$*.xlsx
+
+# Local generated outputs
+sales_report.xlsx

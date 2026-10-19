@@ -54,7 +54,9 @@ sales-report-automation/
 ├── sales_report.py         # Generates the Excel report
 ├── sales.csv               # Source sales data
 ├── validated_sales.csv     # Generated clean data
-├── sales_report.xlsx       # Generated Excel report
+├── sales_report.xlsx       # Generated Excel report (ignored by Git)
+├── screenshots/
+│   └── dashboard.png       # Streamlit dashboard screenshot
 └── README.md               # Project documentation
 ```
 
@@ -127,6 +129,13 @@ dashboard and chat assistant.
 
 The chat assistant supports basic questions about total revenue, units sold,
 valid sales records, and product-wise performance.
+
+## Screenshots
+
+The live dashboard includes summary metrics, sales details, product-wise
+revenue, Excel report generation and download, and the chat assistant.
+
+![Sales Report Assistant dashboard](screenshots/dashboard.png)
 
 ## Generated Report
 
