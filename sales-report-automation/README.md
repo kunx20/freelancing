@@ -56,7 +56,9 @@ sales-report-automation/
 ├── validated_sales.csv     # Generated clean data
 ├── sales_report.xlsx       # Generated Excel report (ignored by Git)
 ├── screenshots/
-│   └── dashboard.png       # Streamlit dashboard screenshot
+│   ├── dashboard.png       # Streamlit dashboard screenshot
+│   ├── chat-assistant.png  # Chat assistant response screenshot
+│   └── excel-report.png    # Excel report generation screenshot
 └── README.md               # Project documentation
 ```
 
@@ -136,6 +138,10 @@ The live dashboard includes summary metrics, sales details, product-wise
 revenue, Excel report generation and download, and the chat assistant.
 
 ![Sales Report Assistant dashboard](screenshots/dashboard.png)
+
+![Chat assistant response](screenshots/chat-assistant.png)
+
+![Excel report generation](screenshots/excel-report.png)
 
 ## Generated Report
 
