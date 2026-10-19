@@ -11,41 +11,51 @@ and generates a formatted Excel sales report.
 - Removes exact duplicate records
 - Calculates revenue for each sale and product
 - Generates a formatted Excel workbook with summary and detail sheets
+- Provides an interactive sales dashboard using Streamlit
+- Includes a chat interface for asking basic questions about sales data
+- Displays sales metrics and product-wise revenue charts
+- Allows users to download the generated Excel report
 
 ## Technologies
 
 - Python
 - CSV module
+- Pandas
 - OpenPyXL
+- Streamlit
 
 ## Requirements
 
 - Python 3.8 or newer
+- Pandas
 - OpenPyXL
+- Streamlit
 
 ## Installation
 
-Install the required package:
-
-```bash
-python -m pip install openpyxl
-```
-
-On Windows, if the `python` command is not available, use:
+Install the required packages:
 
 ```powershell
-py -m pip install openpyxl
+py -m pip install pandas openpyxl streamlit
+```
+
+If the `py` command is unavailable, try:
+
+```bash
+python -m pip install pandas openpyxl streamlit
 ```
 
 ## Project Structure
 
 ```text
 sales-report-automation/
-├── csv_processor.py       # Validates sales.csv
-├── sales_report.py        # Creates the Excel report
-├── sales.csv              # Source sales data
-├── validated_sales.csv    # Generated clean data
-└── sales_report.xlsx      # Generated Excel report
+├── app.py                  # Streamlit dashboard and chat assistant
+├── csv_processor.py        # Validates and cleans sales.csv
+├── sales_report.py         # Generates the Excel report
+├── sales.csv               # Source sales data
+├── validated_sales.csv     # Generated clean data
+├── sales_report.xlsx       # Generated Excel report
+└── README.md               # Project documentation
 ```
 
 ## Input File Format
@@ -97,6 +107,27 @@ py sales_report.py
 Run both commands from the project directory because the scripts use relative
 file paths.
 
+## Run the Chat Assistant
+
+First, validate the sales data:
+
+```powershell
+py csv_processor.py
+```
+
+Then start the Streamlit application:
+
+```powershell
+py -m streamlit run app.py
+```
+
+Streamlit will provide a local URL, usually
+`http://localhost:8501`. Open it in your browser to access the sales
+dashboard and chat assistant.
+
+The chat assistant supports basic questions about total revenue, units sold,
+valid sales records, and product-wise performance.
+
 ## Generated Report
 
 The project creates:
@@ -136,3 +167,8 @@ Revenue = Quantity × Price
 - Add graphical charts
 - Support more input formats
 - Add automated tests
+
+## Project Status
+
+Personal portfolio project using sample sales data. The chat assistant uses
+rule-based question matching and does not require a paid AI API.
