@@ -130,6 +130,31 @@ dashboard and chat assistant.
 The chat assistant supports basic questions about total revenue, units sold,
 valid sales records, and product-wise performance.
 
+## Deploy on Streamlit Community Cloud
+
+This project is ready to deploy on
+[Streamlit Community Cloud](https://share.streamlit.io/).
+
+1. Push the `sales-report-automation` folder to a GitHub repository.
+2. Sign in to Streamlit Community Cloud with GitHub.
+3. Select **Create app** and choose your repository and branch.
+4. Set the **Main file path** to:
+
+   ```text
+   sales-report-automation/app.py
+   ```
+
+5. Click **Deploy**.
+
+The `requirements.txt` file in the project folder installs the required
+packages automatically. The app uses the included `sales.csv` file and
+automatically creates `validated_sales.csv` if it is missing. Generated Excel
+files are temporary on Streamlit Cloud, so download a report before restarting
+or redeploying the app.
+
+For a repository where `sales-report-automation` is the repository root, use
+`app.py` as the main file path instead.
+
 ## Screenshots
 
 The live dashboard includes summary metrics, sales details, product-wise

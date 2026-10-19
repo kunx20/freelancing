@@ -8,6 +8,8 @@ import streamlit as st
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_FILE = BASE_DIR / "validated_sales.csv"
+SOURCE_FILE = BASE_DIR / "sales.csv"
+VALIDATION_SCRIPT = BASE_DIR / "csv_processor.py"
 REPORT_FILE = BASE_DIR / "sales_report.xlsx"
 REPORT_SCRIPT = BASE_DIR / "sales_report.py"
 
@@ -21,11 +23,32 @@ st.title("📊 Sales Report Assistant")
 st.caption("Explore your sales data and generate Excel reports.")
 
 if not DATA_FILE.exists():
-    st.error(
-        "validated_sales.csv was not found. "
-        "Run csv_processor.py first to validate your sales.csv file."
-    )
-    st.stop()
+    if not SOURCE_FILE.exists():
+        st.error(
+            "Neither validated_sales.csv nor sales.csv was found. "
+            "Add sales.csv to the project directory."
+        )
+        st.stop()
+
+    try:
+        result = subprocess.run(
+            [sys.executable, str(VALIDATION_SCRIPT)],
+            cwd=str(BASE_DIR),
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+    except subprocess.TimeoutExpired:
+        st.error("Sales data validation took too long.")
+        st.stop()
+    except OSError as exc:
+        st.error(f"Could not start sales data validation: {exc}")
+        st.stop()
+
+    if result.returncode != 0 or not DATA_FILE.exists():
+        st.error("Sales data validation failed.")
+        st.code(result.stderr or result.stdout)
+        st.stop()
 
 try:
     df = pd.read_csv(DATA_FILE)
