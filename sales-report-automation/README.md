@@ -53,13 +53,11 @@ sales-report-automation/
 ├── csv_processor.py        # Validates and cleans sales.csv
 ├── sales_report.py         # Generates the Excel report
 ├── sales.csv               # Source sales data
-├── validated_sales.csv     # Generated clean data
-├── sales_report.xlsx       # Generated Excel report (ignored by Git)
-├── screenshots/
+├── README.md               # Project documentation
+└── screenshots/
 │   ├── dashboard.png       # Streamlit dashboard screenshot
 │   ├── chat-assistant.png  # Chat assistant response screenshot
 │   └── excel-report.png    # Excel report generation screenshot
-└── README.md               # Project documentation
 ```
 
 ## Input File Format
