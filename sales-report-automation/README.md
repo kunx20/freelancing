@@ -15,6 +15,10 @@ and generates a formatted Excel sales report.
 - Includes a chat interface for asking basic questions about sales data
 - Displays sales metrics and product-wise revenue charts
 - Allows users to download the generated Excel report
+- 
+## Live Demo
+
+[Launch Sales Report Automation](https://freelancing-39maquehee8xc3hrytytx5.streamlit.app/)
 
 ## Technologies
 
